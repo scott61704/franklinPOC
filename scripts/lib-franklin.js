@@ -78,6 +78,7 @@ export function sampleRUM(checkpoint, data = {}) {
  * @param {string} href The path to the CSS file
  */
 export function loadCSS(href, callback) {
+  console.log("inside loadCss, href="+href);
   if (!document.querySelector(`head > link[href="${href}"]`)) {
     const link = document.createElement('link');
     link.setAttribute('rel', 'stylesheet');
@@ -100,6 +101,7 @@ export function loadCSS(href, callback) {
 export function getMetadata(name) {
   const attr = name && name.includes(':') ? 'property' : 'name';
   const meta = [...document.head.querySelectorAll(`meta[${attr}="${name}"]`)].map((m) => m.content).join(', ');
+  console.log("getMetadata, name="+name+", meta="+meta);
   return meta || '';
 }
 
@@ -202,6 +204,7 @@ export function decorateBlock(block) {
  * @returns {object} The block config
  */
 export function readBlockConfig(block) {
+  console.log("begin of readBlockConfig for block=" + block);
   const config = {};
   block.querySelectorAll(':scope>div').forEach((row) => {
     if (row.children) {
@@ -314,6 +317,7 @@ export function decorateBlocks(main) {
  * @param {any} content two dimensional array or string or object of content
  */
 export function buildBlock(blockName, content) {
+  console.log("buildBlock for blockName=" + blockName);
   const table = Array.isArray(content) ? content : [[content]];
   const blockEl = document.createElement('div');
   // build image block nested div structure
@@ -325,6 +329,7 @@ export function buildBlock(blockName, content) {
       const vals = col.elems ? col.elems : [col];
       vals.forEach((val) => {
         if (val) {
+          console.log("Before setting innerHTML or appendChild for " + val);
           if (typeof val === 'string') {
             colEl.innerHTML += val;
           } else {
@@ -344,8 +349,10 @@ export function buildBlock(blockName, content) {
  * @param {Element} block The block element
  */
 export async function loadBlock(block) {
+  console.log("Begin of loadBlock for block=" + block);
   const status = block.getAttribute('data-block-status');
   if (status !== 'loading' && status !== 'loaded') {
+    console.log("Start loading code for block");
     block.setAttribute('data-block-status', 'loading');
     const blockName = block.getAttribute('data-block-name');
     try {
@@ -509,6 +516,7 @@ export function decorateButtons(element) {
 export async function waitForLCP(lcpBlocks) {
   const block = document.querySelector('.block');
   const hasLCPBlock = (block && lcpBlocks.includes(block.getAttribute('data-block-name')));
+  console.log("hasLCPBlock="+hasLCPBlock);
   if (hasLCPBlock) await loadBlock(block);
 
   document.querySelector('body').classList.add('appear');
@@ -528,9 +536,13 @@ export async function waitForLCP(lcpBlocks) {
  * loads a block named 'header' into header
  */
 export function loadHeader(header) {
+  console.log("before head buildBlock");
   const headerBlock = buildBlock('header', '');
+  console.log("before header append");
   header.append(headerBlock);
+  console.log("before header decorateBlock");
   decorateBlock(headerBlock);
+  console.log("before loadBlock of header");
   return loadBlock(headerBlock);
 }
 

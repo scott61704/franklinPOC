@@ -1,0 +1,26 @@
+main .si-main-cta-container {
+    background-color: green;
+    padding: 0;
+}
+main .si-main-cta-wrapper {
+    margin: 0;
+    max-width: 100%;
+}
+.si-main-cta {
+}
+.si-main-cta-row {
+    display: flex;
+}
+  
+.si-main-cta-column {
+    flex: 50%;
+}
+
+.si-main-cta-column-left {
+    background-color: red;
+}
+
+.si-main-cta-column-right {
+    background-color: yellow;
+}
+

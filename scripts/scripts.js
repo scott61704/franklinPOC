@@ -22,7 +22,9 @@ function buildHeroBlock(main) {
   // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
     const section = document.createElement('div');
+    console.log("before section.append for buildBlock(hero)");
     section.append(buildBlock('hero', { elems: [picture, h1] }));
+    console.log("before main.prepend for section with hero");
     main.prepend(section);
   }
 }
@@ -33,12 +35,26 @@ function buildHeroBlock(main) {
  */
 function buildAutoBlocks(main) {
   try {
+    console.log("in buildAutoBlocks");
+    console.log("before buildHeroBlock");
     buildHeroBlock(main);
+    console.log("before buildEmbeds");
+    buildEmbeds(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
   }
 }
+
+function buildEmbeds() {
+  const embeds = [...document.querySelectorAll('a[href^="https://www.youtube.com"], a[href^="https://gist.github.com"]')];
+  console.log("embeds #=" + embeds.length);
+  embeds.forEach((embed) => {
+    embed.replaceWith(buildBlock('embed', embed.outerHTML));
+    console.log("After embed processing");
+  });
+}
+
 
 /**
  * Decorates the main element.
@@ -47,10 +63,15 @@ function buildAutoBlocks(main) {
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
   // hopefully forward compatible button decoration
+  console.log("before decorateButtons");
   decorateButtons(main);
+  console.log("before decorateIcons");
   decorateIcons(main);
+  console.log("before buildAutoBlocks");
   buildAutoBlocks(main);
+  console.log("before decorateSections");
   decorateSections(main);
+  console.log("before decorateBlocks");
   decorateBlocks(main);
 }
 
@@ -59,10 +80,13 @@ export function decorateMain(main) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
+  console.log("before decorateTemplateAndTheme");
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
+    console.log("before decorateMain");
     decorateMain(main);
+    console.log("beforeAwaitForLCP");
     await waitForLCP(LCP_BLOCKS);
   }
 }
@@ -116,8 +140,11 @@ function loadDelayed() {
 }
 
 async function loadPage() {
+  console.log("before loadEager");
   await loadEager(document);
+  console.log("before loadLazy");
   await loadLazy(document);
+  console.log("before loadDelayed");
   loadDelayed();
 }
 
