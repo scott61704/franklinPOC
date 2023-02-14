@@ -91,6 +91,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  */
 export default async function decorate(block) {
   const config = readBlockConfig(block);
+  console.log("Inside decorate for block, config.nav="+config.nav);
   block.textContent = '';
 
   // fetch nav content

@@ -38,15 +38,35 @@ export default function decorate(block) {
     option3.label = "Pet";
     select.append(option3);
 
-    const input = document.createElement("input");    
+    const input = document.createElement("input");
+    const button = document.createElement("button");    
+    button.textContent = "Start a quote";
 
     leftColumn.append(quoteHeading);
     leftColumn.append(quoteParagraph);
     leftColumn.append(select);
     leftColumn.append(input);
+    leftColumn.append(button);
 
-    const rightColumnHeading = document.createElement("h3");
-    rightColumnHeading.textContent = "This is my right column heading";
-    rightColumn.append(rightColumnHeading);
+    const agentHeading = document.createElement("h3");
+    agentHeading.innerHTML = "Find agents near<br>you or contact us";
+    
+    const agentParagraph  = document.createElement("p");
+    agentParagraph.textContent = "There's one ready to offer personalized service to fit your needs."
+
+    const agentInput = document.createElement("input");
+    const agentButton = document.createElement("button");    
+    agentButton.textContent = "Find an agent";
+
+    rightColumn.append(agentHeading);
+    rightColumn.append(agentHeading);
+    rightColumn.append(agentParagraph);
+    rightColumn.append(agentInput);
+    rightColumn.append(agentButton);
+
     block.append(row);
+
+    const img = document.createElement("img");
+    img.src = "https://main--franklinpoc--scott61704.hlx.page/img/snowman.jpg";
+    block.append(img);
 }

@@ -5,8 +5,14 @@ main .si-main-cta-container {
 main .si-main-cta-wrapper {
     margin: 0;
     max-width: 100%;
+/*    background-image: url(https://main--franklinpoc--scott61704.hlx.page/img/snowman.jpg);
+    background-position: center;
+    background-repeat: no-repeat; */
 }
-.si-main-cta {
+.si-main-cta > img {
+    height: 250px;
+    position: relative;
+    top: -300px; left: 35%;
 }
 .si-main-cta-row {
     display: flex;
@@ -14,13 +20,25 @@ main .si-main-cta-wrapper {
   
 .si-main-cta-column {
     flex: 50%;
+    padding-left: 100px;
 }
 
 .si-main-cta-column-left {
     background-color: red;
 }
 
+.si-main-cta-column-left > input, select {
+    width: 200px;
+}
 .si-main-cta-column-right {
     background-color: yellow;
 }
 
+.si-main-cta-column-right > input {
+    width: 200px;
+    display: inline-block;
+    margin-right: 30px;
+}
+.si-main-cta-column-right > p {
+    width: 400px;
+}

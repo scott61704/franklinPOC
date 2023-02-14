@@ -235,6 +235,7 @@ export function readBlockConfig(block) {
             value = ps.map((p) => p.textContent);
           }
         } else value = row.children[1].textContent;
+        console.log("SW Config value - name="+value);
         config[name] = value;
       }
     }
