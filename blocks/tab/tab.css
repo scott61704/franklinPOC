@@ -1,0 +1,22 @@
+ 
+  /* Style the tab content */
+  .tab-container {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+
+  .tab-container {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  }
+
+  main .tab-container {
+    padding-top: 0px; /* needed to override default padding for a section */
+  }
+  
+  /* Go from zero to full opacity */
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
