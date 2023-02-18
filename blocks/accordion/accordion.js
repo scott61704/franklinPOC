@@ -27,7 +27,7 @@ function styleSlideDown() {
 
     for (i = 0; i < acc.length; i++) {
     acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
+        this.classList.toggle("activeAccordionButton");
         var panel = this.nextElementSibling;
         if (panel.style.maxHeight.maxHeight) {
         panel.style.maxHeight = null;
