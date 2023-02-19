@@ -19,7 +19,8 @@ export default function decorate(block) {
     });*/
     const tabIndex = [...allTabContainers].indexOf(block.parentElement.parentElement);
     console.log("tabIndex = " + tabIndex);
-    const allTabButtons = document.getElementsByClassName("tabButton")[tabIndex].innerHTML = tabTextString;
+    //const allTabButtons = document.getElementsByClassName("tabButton")[tabIndex].innerHTML = tabTextString;
+    const allTabButtons = document.getElementById("tabButton"+tabIndex).innerHTML = tabTextString;
 
 
 }

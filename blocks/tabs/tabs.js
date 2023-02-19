@@ -28,21 +28,37 @@ function openTabContent(evt, tabIndex) {
      });
     tabButton.className = "tabButton";
     tabButton.innerText="Button " + index;
+    tabButton.id = "tabButton"+index;
+    console.log("tabButton outerHTML" + tabButton.outerHTML);
     return tabButton;
 
   }
   export default function decorate(block) {
     console.log("tabs block outerHTML="+block.outerHTML);
     block.textContent="";
-    const tabButton0 = createTabButton(0);
-    block.append(tabButton0);
-    const tabButton1 = createTabButton(1);
-    block.append(tabButton1);
-    const tabButton2 = createTabButton(2);
-    block.append(tabButton2);
-    const tabButton3 = createTabButton(3);
-    block.append(tabButton3);
+    var index=0;
+    const tabBlocks = document.getElementsByClassName("tab");
+    const tabBlocksSize = tabBlocks.length;
+    console.log("tabBloocksSize="+tabBlocksSize);
+    for(let index=0; index<tabBlocksSize; index++) {
+      const tabButton = createTabButton(index);
+      block.append(tabButton);
+      if(index==0) {
+        tabButton.click();
+      }
+    };
 
-    tabButton0.click();
+/*    const tabsDiv = document.createElement("div");
+    tabsDiv.className = "tabsDiv"
+    const tabButton0 = createTabButton(0);
+    tabsDiv.append(tabButton0);
+    const tabButton1 = createTabButton(1);
+    tabsDiv.append(tabButton1);
+    const tabButton2 = createTabButton(2);
+    tabsDiv.append(tabButton2);
+    const tabButton3 = createTabButton(3);
+    tabsDiv.append(tabButton3);
+*/
+    //tabButton0.click();
 
   }
