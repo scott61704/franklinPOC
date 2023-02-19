@@ -1,0 +1,17 @@
+.resources {
+  background-color:bisque;
+  max-width: 25%;
+  float: right;
+  margin-left: 20px;
+  padding: 20px;
+}
+
+.resources ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resources a {
+  font-size: medium;
+}

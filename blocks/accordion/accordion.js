@@ -7,11 +7,15 @@ function styleAccordion() {
     acc[i].addEventListener("click", function() {
         /* Toggle between adding and removing the "active" class,
         to highlight the button that controls the panel */
-        this.classList.toggle("active");
+        console.log("In style function, classList before = " + this.classList);
+
+        this.classList.toggle("activeAccordionButton");
+        console.log("In style function, classList after = " + this.classList);
 
         /* Toggle between hiding and showing the active panel */
         var panel = this.nextElementSibling;
         console.log("**** panel = " + panel.innerText);
+        console.log("---- panel.style.display = " + panel.style.display);
         if (panel.style.display === "block") {
         panel.style.display = "none";
         } else {
@@ -21,21 +25,24 @@ function styleAccordion() {
     }
 }
 
-function styleSlideDown() {
-    var acc = document.getElementsByClassName("accordionButton");
-    var i;
+function styleSlideDown(button) {
+    //var acc = document.getElementsByClassName("accordionButton");
+    //var i;
 
-    for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
+    //for (i = 0; i < acc.length; i++) {
+    button.addEventListener("click", function() {
+        console.log("In slidedown function, classList before = " + this.classList);
         this.classList.toggle("activeAccordionButton");
+        console.log("In slidedown function, classList after = " + this.classList);
         var panel = this.nextElementSibling;
-        if (panel.style.maxHeight.maxHeight) {
+        if (panel.style.maxHeight) {
+        console.log("!!!accordion - right before setting maxHeight to null, current = " + panel.maxHeight);
         panel.style.maxHeight = null;
         } else {
+            console.log("!!!accordion - right before setting maxHeight = " + panel.scrollHeight);
         panel.style.maxHeight = panel.scrollHeight + "px";
         }
     });
-    }
 }
 export default function decorate(block) {
     console.log("Inside decorate() for accordion, block.textContent = " + block.textContent);
@@ -58,10 +65,11 @@ export default function decorate(block) {
         block.append(button);
         block.append(panel);
         block.removeChild(row);
+        styleSlideDown(button);
 
     });
     //block.textContext = "";
     //block.append(wrapperDiv);
-    styleAccordion();
-    styleSlideDown();
+   //styleAccordion();
+    //styleSlideDown();
 }  

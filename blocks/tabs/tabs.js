@@ -12,13 +12,13 @@ function openTabContent(evt, tabIndex) {
     // Get all elements with class="tabButton" and remove the class "active"
     tabButtons = document.getElementsByClassName("tabButton");
     for (i = 0; i < tabButtons.length; i++) {
-      tabButtons[i].className = tabButtons[i].className.replace(" active", "");
+      tabButtons[i].className = tabButtons[i].className.replace(" activeTabButton", "");
     }
   
     // Show the current tab, and add an "active" class to the button that opened the tab
     //document.getElementById(id).style.display = "block";
     document.getElementsByClassName("tab-container")[tabIndex].style.display = "block";
-    evt.currentTarget.className += " active";
+    evt.currentTarget.className += " activeTabButton";
   }
 
   function createTabButton(index) {
