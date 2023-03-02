@@ -108,6 +108,25 @@ export function addFavIcon(href) {
   }
 }
 
+export function adjustFootnoteAnchors() {
+  
+  alert("In adjustFootnoteAnchors, # of a's = " + document.querySelectorAll("a[href*='footnote']").length);
+  [...document.querySelectorAll("a[href*='footnote']")].forEach(el => {
+    // Do something with each element
+    //alert("got an a  " + el.getAttribute("href"));
+   
+    const href= el.getAttribute("href");
+    if(href.startsWith("#footnote-reference")) {
+      //alert("got a footnote " + el.getAttribute("href"));
+      el.id=href.replace("#footnote-reference", "footnote");            
+    } else {
+      el.id=href.replace("#footnote-", "footnote-reference-");            
+    }
+  })
+
+
+}
+
 /**
  * loads everything that doesn't need to be delayed.
  */
@@ -127,6 +146,8 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
+
+  adjustFootnoteAnchors();
 }
 
 /**
