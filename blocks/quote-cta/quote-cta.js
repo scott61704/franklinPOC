@@ -13,6 +13,22 @@ export default function decorate(block) {
     const ctaHeading5 = document.createElement("h5");
     ctaHeading5.innerText = "Select a Product";
     rightDiv.append(ctaHeading5);
+    const select = document.createElement("select");
+    const option1 = document.createElement("option");
+    option1.value = "Auto";
+    option1.label = "Auto";
+    select.append(option1);
+    const option2 = document.createElement("option");
+    option2.value = "Fire";
+    option2.label = "Fire";
+    select.append(option2);
+    const option3 = document.createElement("option");
+    option3.value = "Pet";
+    option3.label = "Pet";
+    select.append(option3);
+    rightDiv.append(select);
+    const zipCode = document.createElement("input");
+    rightDiv.append(zipCode);
     rightDiv.className = "quote-cta-right-div col-4";
     block.append(rightDiv);
   }

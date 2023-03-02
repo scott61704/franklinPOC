@@ -47,6 +47,14 @@
 /*    width: 350px;
     height: 340px; */
     background-color: red;
-    text-align: center;
 
+}
+
+.quote-cta .quote-cta-right-div h3,h5{
+    text-align: center;
+}
+
+.quote-cta .quote-cta-right-div input, select{
+    width: 300px;
+    margin-left: 20px;
 }
