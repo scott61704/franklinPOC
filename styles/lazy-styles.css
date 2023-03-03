@@ -1,1 +1,111 @@
 /* below the fold CSS goes here */
+
+@font-face {
+    font-family: "MecherleSans-Regular";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-Regular.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-Regular.woff") format("woff"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/otf/MecherleSans-Regular.otf") format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleSans-Medium";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-Medium.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-Medium.woff") format("woff"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/otf/MecherleSans-Medium.otf") format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleSans-SemiBold";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-SemiBold.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-SemiBold.woff") format("woff"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/otf/MecherleSans-SemiBold.otf") format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleSans-Bold";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-Bold.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-Bold.woff") format("woff"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/otf/MecherleSans-Bold.otf") format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleLegal-Regular";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleLegal-Regular.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleLegal-Regular.woff") format("woff"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/otf/MecherleLegal-Regular.otf") format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleSans";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-Regular.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleSans";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-RegularItalic.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-RegularItalic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleSans";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-Medium.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleSans";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-MediumItalic.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-MediumItalic.woff") format("woff");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleSans";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-SemiBold.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleSans";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-SemiBoldItalic.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-SemiBoldItalic.woff") format("woff");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleSans";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-Bold.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleSans";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-BoldItalic.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleSans-BoldItalic.woff") format("woff");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleLegal";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleLegal-Regular.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleLegal-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MecherleLegal";
+    src: url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleLegal-RegularItalic.woff2") format("woff2"),url("https://static1.st8fm.com/en_US/dxl-1x/prod/css/fonts/Mecherle/woff/MecherleLegal-RegularItalic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
