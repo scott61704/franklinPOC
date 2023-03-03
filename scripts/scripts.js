@@ -110,7 +110,7 @@ export function addFavIcon(href) {
 
 export function adjustFootnoteAnchors() {
   
-  alert("In adjustFootnoteAnchors, # of a's = " + document.querySelectorAll("a[href*='footnote']").length);
+  //alert("In adjustFootnoteAnchors, # of a's = " + document.querySelectorAll("a[href*='footnote']").length);
   [...document.querySelectorAll("a[href*='footnote']")].forEach(el => {
     // Do something with each element
     //alert("got an a  " + el.getAttribute("href"));
@@ -119,9 +119,15 @@ export function adjustFootnoteAnchors() {
     if(href.startsWith("#footnote-reference")) {
       //alert("got a footnote " + el.getAttribute("href"));
       el.id=href.replace("#footnote-reference", "footnote");            
+      el.className = "footnote-anchor";
     } else {
-      el.id=href.replace("#footnote-", "footnote-reference-");            
-    }
+      el.id=href.replace("#footnote", "footnote-reference");            
+      const supTag = document.createElement("sup");
+      supTag.innerHTML = el.innerHTML;
+      el.innerHTML = supTag.outerHTML;
+      }
+
+
   })
 
 

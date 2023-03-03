@@ -262,3 +262,7 @@ main .section[data-section-status='initialized'] {
 main .section.highlight {
   background-color: var(--highlight-background-color);
 }
+
+.footnote-anchor {
+  padding-right: .25rem;;
+}
