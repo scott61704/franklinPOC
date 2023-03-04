@@ -100,6 +100,7 @@ export default async function decorate(block) {
 
   if (resp.ok) {
     const html = await resp.text();
+    //alert ("nav plain html = " + html);
 
     // decorate nav DOM
     const nav = document.createElement('nav');
