@@ -1,5 +1,7 @@
 async function getAllUrls(urls) {
     try {
+        //TODO - should use Promise.allSettled, instead of .all, in case some of the requests fail.
+        //but couldn't figure out how to get the responses out of them.  Just shows [object Object]
         var data = await Promise.all(
             urls.map(
                 url =>
