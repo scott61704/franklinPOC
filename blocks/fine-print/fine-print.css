@@ -11,7 +11,7 @@
     margin-bottom: 16px;
 }
 
-.fine-print, .fine-print h2, h3, h4, h5, h6 {
+.fine-print, .fine-print h2, .fine-print h3, .fine-print h4, .fine-print h5, .fine-print h6 {
     font-size: 0.75rem;
     line-height: 16px;
 }
