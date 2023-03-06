@@ -62,7 +62,6 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
-  background-color: pink;
 }
 
 body.appear {
