@@ -37,6 +37,8 @@ export default async function decorate(block) {
         var fragmentDiv;
         var tempMain;
         var sectionDiv;
+        var parentPTag;
+        var fragmentContent;
         while (response) {
             if (response) {
                 const fragmentText = response; 
@@ -78,8 +80,14 @@ export default async function decorate(block) {
                     defaultContentWrapper.classList = defaultContentWrapper.classList + " fine-print-item";
                 }*/
 
-                anchors[index].outerHTML = tempMain.querySelector(".section").innerHTML;
+                //anchors[index].outerHTML = tempMain.querySelector(".section").innerHTML;
                 
+                //Couldn't do the following, because the onEventListeners would be lost from the accordion buttons.
+                //So had to do a replaceChild using real DOM elements, not just a string for innerHTML.
+                //anchors[index].outerHTML = tempMain.querySelector(".section").innerHTML;
+                parentPTag = anchors[index].closest("p");
+                fragmentContent = tempMain.querySelector(".section>div");
+                parentPTag.replaceChild(fragmentContent, anchors[index]);
             }
             index++;
             if (index < responses.length) {

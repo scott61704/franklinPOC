@@ -26,11 +26,11 @@
 
 }
 
-.fine-print p {
+.fine-print>div>div>p {
     margin-top: 0;
-    margin-bottom: 16px;
+    margin-bottom: 0;
 }
 .fine-print .default-content-wrapper p {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 16px;
 }
