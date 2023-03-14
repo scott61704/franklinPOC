@@ -30,6 +30,7 @@ function styleSlideDown(button) {
     //var i;
 
     //for (i = 0; i < acc.length; i++) {
+    console.log("Inside styleSlideDown(), button.outerHTML=" + button.outerHTML);
     button.addEventListener("click", function() {
         console.log("In slidedown function, classList before = " + this.classList);
         this.classList.toggle("activeAccordionButton");

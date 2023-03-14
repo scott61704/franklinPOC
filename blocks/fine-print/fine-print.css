@@ -2,14 +2,10 @@
     display: inline-block;
 }
 
-.fine-print p {
-    margin-top: 0;
-    margin-bottom: 0;
-}
 
-.fine-print-item p {
+/*.fine-print-item p {
     margin-bottom: 16px;
-}
+}*/
 
 .fine-print, .fine-print h2, .fine-print h3, .fine-print h4, .fine-print h5, .fine-print h6 {
     font-size: 0.75rem;
@@ -25,3 +21,16 @@
     border: 1px solid lightgray;
 }
 
+.fine-print .default-content-wrapper {
+    display: inline-block;
+
+}
+
+.fine-print p {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+.fine-print .default-content-wrapper p {
+    margin-top: 0;
+    margin-bottom: 0;
+}

@@ -1,3 +1,6 @@
+import { loadBlocks } from '../../scripts/lib-franklin.js';
+import { decorateMain } from '../../scripts/scripts.js';
+
 async function getAllUrls(urls) {
     try {
         //TODO - should use Promise.allSettled, instead of .all, in case some of the requests fail.
@@ -32,16 +35,51 @@ export default async function decorate(block) {
         var index = 0;
         var response = responses[index];
         var fragmentDiv;
+        var tempMain;
+        var sectionDiv;
         while (response) {
             if (response) {
                 const fragmentText = response; 
-                fragmentDiv = document.createElement("div");
-                fragmentDiv.className = "fine-print-item";
-                fragmentDiv.innerHTML = fragmentText;
+
+
+                 // The following removes the "buttonContainer" class from the <p>
+                 // Also, I had to do this before replacing the outerHTML of the <a>
+                 // otherwise it wouldn't find the parent .button-container
+                 const buttonContainer = anchors[index].closest(".button-container");
+                 if (buttonContainer) {
+                     buttonContainer.removeAttribute("class");
+                 }
+
+                tempMain = document.createElement("main");
+                //sectionDiv = document.createElement("div");
+
+                //fragmentDiv = document.createElement("div");
+                //fragmentDiv.outerHTML = fragmentText;
+                //fragmentDiv.innerHTML = fragmentText;
+                tempMain.innerHTML = fragmentText;
+                //tempMain.append(sectionDiv);
+                //tempMain.append(fragmentDiv);
+                //sectionDiv.append(fragmentDiv);
+                console.log("BEFORE tempMain.outerHTML = " + tempMain.outerHTML);
+                decorateMain(tempMain);
+                await loadBlocks(tempMain);
+                console.log("AFTER tempMain.outerHTML = " + tempMain.outerHTML);
+                //block.append(fragmentDiv);
+            
                 // Is this OK to do, which is to replace the anchor's outerHTML with what I retrieved?
                 // I couldn't figure out how to remove the anchor from the block.
-                anchors[index].outerHTML = fragmentDiv.outerHTML;
-                anchors[index].className = "fine-print-item";                
+                //fragmentDiv.className = "fine-print-item";
+                //anchors[index].className = "fine-print-item";    
+                //anchors[index].outerHTML = fragmentDiv.outerHTML;
+                //anchors[index].className = "fine-print-item";    
+                /*const defaultContentWrapper = anchors[index].closest(".default-content-wrapper");
+                if (defaultContentWrapper) {
+                    console.log("Found defaultContentWrapper");
+                    defaultContentWrapper.classList = defaultContentWrapper.classList + " fine-print-item";
+                }*/
+
+                anchors[index].outerHTML = tempMain.querySelector(".section").innerHTML;
+                
             }
             index++;
             if (index < responses.length) {
@@ -52,4 +90,10 @@ export default async function decorate(block) {
 
     }
 
+/*    const tempMain = document.createElement("main");
+    tempMain.append(block);
+    decorateMain(tempMain);
+    await loadBlocks(tempMain);
+    console.log("tempMain.outerHTML = " + tempMain.outerHTML);
+    block.outerHTML = tempMain.querySelector("main>div"); */
 }
