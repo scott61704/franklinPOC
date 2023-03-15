@@ -28,8 +28,9 @@ async function getAndProcessAllUrls(urls) {
         //but couldn't figure out how to get the responses out of them.  Just shows [object Object]
         const data = await Promise.all(urls.map(async url => {
             const response = await fetch(url+".plain.html");
-            processOneResponse(await response.text(), url);
-            return response.text();
+            var responseText = await response.text();
+            processOneResponse(responseText, url);
+            return responseText;
           }));
 
     
