@@ -22,6 +22,46 @@ async function getAllUrls(urls) {
     }
 }
 
+async function getAndProcessAllUrls(urls) {
+    try {
+        //TODO - should use Promise.allSettled, instead of .all, in case some of the requests fail.
+        //but couldn't figure out how to get the responses out of them.  Just shows [object Object]
+        const data = await Promise.all(urls.map(async url => {
+            const response = await fetch(url+".plain.html");
+            processOneResponse(await response.text(), url);
+            return response.text();
+          }));
+
+    
+    return (data)
+} catch (error) {
+        console.log("fetch error" + error)
+
+        throw (error)
+    }
+}
+
+function processOneResponse(response, anchor) {
+    if (response) {
+        const fragmentText = response; 
+
+
+         // The following removes the "buttonContainer" class from the <p>
+         // Also, I had to do this before replacing the outerHTML of the <a>
+         // otherwise it wouldn't find the parent .button-container
+         const buttonContainer = anchor.closest(".button-container");
+         if (buttonContainer) {
+             buttonContainer.removeAttribute("class");
+         }
+
+         if (fragmentText.includes("class=")) {
+            loadFragmentUsingTempMain(fragmentText, anchor);
+         } else {
+            loadFragmentAsString(fragmentText, anchor);
+         }
+    }
+
+}
 async function loadFragmentUsingTempMain(fragmentText, fragmentAnchor) {
 
     var tempMain;
@@ -83,43 +123,20 @@ export default async function decorate(block) {
 
     const anchors = [...block.querySelectorAll("a[href*='/fragment/']")];
 
-    var responses = await getAllUrls(anchors)
+    var responses = getAndProcessAllUrls(anchors);
+/*    var responses = await getAllUrls(anchors)
 
         // Fetching the .plain.html version of the URL gets just the contents of the body, it seems.
         var index = 0;
         var response = responses[index];
         while (response) {
-            if (response) {
-                const fragmentText = response; 
-
-
-                 // The following removes the "buttonContainer" class from the <p>
-                 // Also, I had to do this before replacing the outerHTML of the <a>
-                 // otherwise it wouldn't find the parent .button-container
-                 const buttonContainer = anchors[index].closest(".button-container");
-                 if (buttonContainer) {
-                     buttonContainer.removeAttribute("class");
-                 }
-
-                 if (fragmentText.includes("class=")) {
-                    loadFragmentUsingTempMain(fragmentText, anchors[index]);
-                 } else {
-                    loadFragmentAsString(fragmentText, anchors[index]);
-                 }
-            }
+            processOneResponse(response, anchors[index]);
             index++;
             if (index < responses.length) {
                 response = responses[index];
             } else {
                 response = null;
+            }
         }
-
-    }
-
-/*    const tempMain = document.createElement("main");
-    tempMain.append(block);
-    decorateMain(tempMain);
-    await loadBlocks(tempMain);
-    console.log("tempMain.outerHTML = " + tempMain.outerHTML);
-    block.outerHTML = tempMain.querySelector("main>div"); */
+*/
 }
