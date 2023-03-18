@@ -2,10 +2,11 @@ export default function decorate(block) {
     const leftSideContent = block.firstElementChild.children[0];
     block.textContent = "";
     block.classList =  block.classList + " flex-row";
+    const divRow = document.createElement("div");
     const leftDiv = document.createElement("div");
     leftDiv.innerHTML = leftSideContent.innerHTML;
     leftDiv.className = "quote-cta-left-div col-8";
-    block.append(leftDiv);
+    divRow.append(leftDiv);
     const rightDiv = document.createElement("div");
     const ctaHeading3 = document.createElement("h3");
     ctaHeading3.innerText = "Get a Quote";
@@ -30,5 +31,6 @@ export default function decorate(block) {
     const zipCode = document.createElement("input");
     rightDiv.append(zipCode);
     rightDiv.className = "quote-cta-right-div col-4";
-    block.append(rightDiv);
+    divRow.append(rightDiv);
+    block.append(divRow);
   }
