@@ -3,6 +3,7 @@ export default function decorate(block) {
     block.textContent = "";
     block.classList =  block.classList + " flex-row";
     const divRow = document.createElement("div");
+    divRow.className = "flex-row";
     const leftDiv = document.createElement("div");
     leftDiv.innerHTML = leftSideContent.innerHTML;
     leftDiv.className = "quote-cta-left-div col-8";

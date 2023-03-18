@@ -100,11 +100,11 @@ h4, h5, h6 {
 }
 
 h1 { font-size: calc(var(--heading-font-size-xxl)/2) }
-h2 { font-size: calc(var(--heading-font-size-xl)/2 }
-h3 { font-size: calc(var(--heading-font-size-l)/2 }
-h4 { font-size: calc(var(--heading-font-size-m)/2 }
-h5 { font-size: calc(var(--heading-font-size-s)/2 }
-h6 { font-size: calc(var(--heading-font-size-xs)/2 }
+h2 { font-size: calc(var(--heading-font-size-xl)/2) }
+h3 { font-size: calc(var(--heading-font-size-l)/2) }
+h4 { font-size: calc(var(--heading-font-size-m)/2) }
+h5 { font-size: calc(var(--heading-font-size-s)/2) }
+h6 { font-size: calc(var(--heading-font-size-xs)/2)  }
 
 
 @media (min-width: 768px) {
@@ -204,9 +204,6 @@ main input:hover {
   border: 1px solid var(--text-color);
 }
 
-main .section {
-/*  padding: 64px 16px; */
-}
 
 main pre {
   background-color: var(--overlay-background-color);
