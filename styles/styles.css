@@ -22,8 +22,8 @@
 
   /* fonts */
   /* --body-font-family: 'helvetica neue', helvetica, ubuntu, roboto, noto, sans-serif; */
-  --body-font-family: "MecherleSans",Arial;
-
+  --body-font-family: "MecherleSans",'MecherleSans Fallback';
+  
   --heading-font-family: var(--body-font-family);
   /* --heading-font-family: var(--body-font-family); */
 
@@ -79,8 +79,8 @@ body {
   margin: auto;*/
   font-family: var(--body-font-family);
 /*  line-height: 1.6; */
-/*   line-height: 1.25; */
-   line-height: 21px;
+   line-height: 1.25;
+/*   line-height: 21px; for 1x */
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
@@ -104,9 +104,9 @@ h4, h5, h6 {
   scroll-margin: calc(var(--nav-height) + 1em);
 */  font-family: var(--heading-font-family);
   font-weight: 600;
-  /*line-height: 1;*/
-  line-height: 28px;
-  letter-spacing: 0;
+  line-height: 1;
+  /* line-height: 28px; */
+  /* letter-spacing: 0; */
 }
 h2, h3,
 h4, h5, h6 {
@@ -118,35 +118,35 @@ h4, h5, h6 {
 h1 { 
   font-size: var(--heading-font-size-xxl-m);
   font-weight: 600;
-  line-height: 28px;
+  /* line-height: 28px; */
  }
 h2 { 
   font-size: var(--heading-font-size-xl-m);
   font-weight: 500;
-  line-height: 25px;
+  /* line-height: 25px; */
  }
 h3 { 
   font-size: var(--heading-font-size-l-m);
   font-weight: 500;
-  line-height: 22px;
+  /* line-height: 22px; */
 
  }
 h4 { 
   font-size: var(--heading-font-size-m-m);
   font-weight: 500;
-  line-height: 20px;
+  /* line-height: 20px; */
 
  }
 h5 { 
   font-size: var(--heading-font-size-s-m);
   font-weight: 500;
-  line-height: 18px;
+  /* line-height: 18px; */
 
  }
 h6 { 
   font-size: var(--heading-font-size-xs-m);
   font-weight: 500;
-  line-height: 16px;
+  /* ;ine-height: 16px; */
   }
 
 

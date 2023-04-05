@@ -538,7 +538,7 @@ export async function waitForLCP(lcpBlocks) {
  */
 export function loadHeader(header) {
   console.log("before head buildBlock");
-  const headerBlock = buildBlock('header1x', '');
+  const headerBlock = buildBlock('header', '');
   console.log("before header append");
   header.append(headerBlock);
   console.log("before header decorateBlock");
